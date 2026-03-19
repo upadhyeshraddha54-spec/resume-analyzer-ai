@@ -1,12 +1,12 @@
 
 
-# 📊 Resume Analyzer with LLM-Driven Insights
+# Resume Analyzer with LLM-Driven Insights
 
 **Resume Analyzer with LLM-Driven Insights** is a full-stack web application that evaluates resumes, provides role-based feedback, and generates structured insights using Large Language Models (LLMs). The system helps identify skill gaps, predict suitable roles, and suggest actionable improvements for candidates.
 
 ---
 
-## 📌 Overview
+##  Overview
 
 This application simulates an automated resume screening system by combining **rule-based evaluation** with **LLM-powered analysis**. It provides:
 
@@ -18,7 +18,7 @@ The tool is ideal for job seekers, recruiters, and HR teams looking to enhance r
 
 ---
 
-## 🚀 Key Features
+##  Key Features
 
 * 📄 **Resume Parsing:** Supports PDF & DOCX formats
 * 🎯 **Role-Based Skill Matching:** Compare candidate skills with job requirements
@@ -87,7 +87,7 @@ Open your browser and go to:
 
 ---
 
-## 🧠 How It Works
+##  How It Works
 
 1. Upload your resume (PDF/DOCX).
 2. Extract text from the file.
@@ -104,7 +104,7 @@ Open your browser and go to:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 resume-analyzer-ai/
@@ -118,17 +118,17 @@ resume-analyzer-ai/
 
 ---
 
-## 📊 Future Enhancements
+##  Future Enhancements
 
-* 🌐 Cloud deployment (Render / AWS)
-* 📊 Analytics dashboard for skill trends
-* 📄 Export resume analysis as PDF
-* 🔐 User authentication and accounts
-* 🤖 Enhanced LLM-based scoring and suggestions
+* Cloud deployment (Render / AWS)
+* Analytics dashboard for skill trends
+* Export resume analysis as PDF
+* User authentication and accounts
+*  Enhanced LLM-based scoring and suggestions
 
 ---
 
-## 💼 Project Highlights
+## Project Highlights
 
 * Combines **rule-based logic** with **LLM-driven insights**
 * Provides **automated scoring** for resume quality and skill alignment
