@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Analyzer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        h2 { text-align: center; color: #333; margin-bottom: 20px; }
+
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 450px;
+        }
+
+        label { font-weight: bold; color: #555; }
+
+        input[type="file"], select {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        button:hover { background-color: #0056b3; }
+
+        .result-card {
+            background-color: #e9f5ff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .result-card h3 { color: #007BFF; margin-bottom: 10px; }
+
+        .result-card p { color: #333; margin: 5px 0; }
+
+        .matched { color: green; font-weight: bold; }
+        .missing { color: red; font-weight: bold; }
+
+        /* Progress bar */
+        .progress-container {
+            background-color: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background-color: #007BFF;
+            width: 0%;
+            text-align: center;
+            color: white;
+            line-height: 20px;
+            transition: 0.5s;
+            border-radius: 20px;
+        }
+
+        /* AI Analysis Box */
+        .ai-box {
+            margin-top: 20px;
+        }
+
+        .ai-box h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .ai-content {
+            background: #f9fbfd;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .ai-content p {
+            white-space: pre-line;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        <h2>Resume Analyzer</h2>
+
+        <label>Upload Resume:</label>
+        <input type="file" name="resume" required>
+
+        <label>Select Role:</label>
+        <select name="role">
+            <option value="data_scientist">Data Scientist</option>
+            <option value="web_developer">Web Developer</option>
+            <option value="backend_developer">Backend Developer</option>
+            <option value="android_developer">Android Developer</option>
+            <option value="devops_engineer">DevOps Engineer</option>
+        </select>
+
+        <button type="submit">Analyze</button>
+
+        {% if result %}
+        <div class="result-card">
+
+            <h3>Predicted Role: {{ result.predicted_role }} ({{ result.predicted_score }}%)</h3>
+
+            <p><strong>Skill Match Score:</strong> {{ result.skill_score }}%</p>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: {{ result.skill_score }}%;">
+                    {{ result.skill_score }}%
+                </div>
+            </div>
+
+            <p><strong>Resume Quality Score:</strong> {{ result.quality_score }}%</p>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: {{ result.quality_score }}%;">
+                    {{ result.quality_score }}%
+                </div>
+            </div>
+
+            <p><strong>Matched Skills:</strong>
+                <span class="matched">{{ result.matched|join(", ") }}</span>
+            </p>
+
+            <p><strong>Missing Skills:</strong>
+                <span class="missing">{{ result.missing|join(", ") }}</span>
+            </p>
+
+            <!-- ✅ NEW AI SECTION -->
+            <div class="ai-box">
+                <h3>🧠 Resume Analysis</h3>
+
+                <div class="ai-content">
+                    <p>{{ result.ai_feedback }}</p>
+                </div>
+            </div>
+
+        </div>
+        {% endif %}
+    </form>
+</body>
+</html>
