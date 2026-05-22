@@ -1,338 +1,140 @@
-# AI Resume Analyzer with LLM-Driven Insights 🚀
+AI Resume Analyzer
+An intelligent ATS resume screening platform that combines rule-based scoring with LLM-powered recruiter feedback to help candidates optimize their resumes.
 
-AI Resume Analyzer with LLM-Driven Insights is an intelligent ATS Resume Screening and Career Recommendation platform that evaluates resumes using rule-based scoring and Large Language Models (LLMs).
+Live Demo :  https://resume-analyzer-with-llm-driven-insights.onrender.com
 
-The application analyzes resumes, predicts suitable tech roles, calculates ATS compatibility, evaluates resume quality, detects missing skills, and generates recruiter-style AI feedback with actionable improvement suggestions.
+Overview
+This project simulates a modern Applicant Tracking System (ATS) used by recruiters and hiring teams. It evaluates resumes across multiple dimensions — ATS compatibility, skill gaps, role fit, and quality — then generates recruiter-style feedback using an LLM to help candidates improve their chances of being shortlisted.
 
----
+Features
 
-# 🌟 Overview
+ATS scoring — evaluates technical skills, keywords, project sections, formatting, contact info, and GitHub presence
+Role prediction — predicts suitable roles: Data Scientist, Backend Developer, Web Developer, Android Developer, or DevOps Engineer
+Skill gap detection — compares resume skills against industry requirements; shows matched vs. missing skills and match percentage
+Resume quality analysis — scores completeness, technical depth, project quality, achievement impact, readability, and ATS readiness
+LLM recruiter feedback — generates strengths, improvement suggestions, and ATS optimization tips via OpenRouter API
+Interactive dashboard — doughnut charts, radar charts, keyword frequency graphs, and skill match analytics via Chart.js
+Learning roadmap — suggests learning paths and missing technologies based on target role
 
-This project simulates a modern AI-powered Applicant Tracking System (ATS) used by recruiters and hiring teams.
 
-It combines:
+Tech Stack
+LayerTechnologyFrontendHTML5, CSS3, Bootstrap 5, Chart.jsBackendPython, FlaskAIOpenRouter API (GPT-4o-mini)File parsingPyPDF2, python-docxDeploymentGunicorn, Render / Railway / Replit
 
-* ATS-based resume evaluation
-* Skill matching algorithms
-* Role prediction logic
-* Resume quality scoring
-* LLM-powered recruiter feedback
-* Interactive analytics dashboard
+Prerequisites
 
-The platform helps candidates optimize resumes for better shortlisting and interview opportunities.
+Python 3.8 or higher
+pip
+An OpenRouter API key
 
----
 
-#  Key Features
-
-## 📄 Resume Parsing
-
-Supports:
-
-* PDF resumes
-* DOCX resumes
-* TXT files
-
-Extracts and processes resume content automatically.
-
----
-
-##  ATS Resume Scoring
-
-Calculates ATS compatibility based on:
-
-* Technical skills
-* Resume keywords
-* Project sections
-* Experience sections
-* Resume formatting
-* Contact details
-* GitHub/portfolio presence
-
----
-
-##  AI Recruiter Feedback
-
-Uses Large Language Models through OpenRouter API to generate:
-
-* Resume strengths
-* Missing skills
-* Resume improvement suggestions
-* ATS optimization tips
-* Structure feedback
-
----
-
-## 🔍 Skill Gap Detection
-
-Compares resume skills with industry-required skills and identifies:
-
-* Matched skills
-* Missing skills
-* Skill match percentage
-
----
-
-##  Role Prediction System
-
-Predicts suitable career roles based on resume content:
-
-* Data Scientist
-* Backend Developer
-* Web Developer
-* Android Developer
-* DevOps Engineer
-
----
-
-## 📈 Resume Quality Analysis
-
-Evaluates:
-
-* Resume completeness
-* Technical depth
-* Project quality
-* Achievement impact
-* Readability
-* ATS readiness
-
----
-
-## Interactive Dashboard
-
-Visualized using Chart.js:
-
-* Doughnut charts
-* Radar charts
-* Keyword frequency graphs
-* Skill match analytics
-
----
-
-##  Personalized Learning Roadmap
-
-Suggests learning paths and missing technologies based on target role requirements.
-
----
-
-#  Tech Stack
-
-## Frontend
-
-* HTML5
-* CSS3
-* Bootstrap 5
-* Chart.js
-
-## Backend
-
-* Python
-* Flask
-
-## AI Integration
-
-* OpenRouter API
-* GPT-4o-mini
-
-## Libraries
-
-* PyPDF2
-* python-docx
-* requests
-* python-dotenv
-* gunicorn
-
----
-
-# ⚙️ Installation & Setup
-
-## 1️⃣ Clone Repository
-
-```bash id="l8f3m1"
-git clone https://github.com/upadhyeshraddha54-spec/Resume-Analyzer-with-LLM-Driven-Insights.git
-```
-
----
-
-## 2️⃣ Navigate to Project Directory
-
-```bash id="v2q9x7"
+Installation
+1. Clone the repository
+bashgit clone https://github.com/upadhyeshraddha54-spec/Resume-Analyzer-with-LLM-Driven-Insights.git
 cd Resume-Analyzer-with-LLM-Driven-Insights
-```
-
----
-
-## 3️⃣ Create Virtual Environment
-
-### Mac/Linux
-
-```bash id="n7m4k2"
+2. Create and activate a virtual environment
+bash# macOS / Linux
 python3 -m venv .venv
 source .venv/bin/activate
-```
 
-### Windows
-
-```bash id="q5r8t1"
+# Windows
 python -m venv .venv
 .venv\Scripts\activate
-```
+3. Install dependencies
+bashpip install -r requirements.txt
+4. Configure environment variables
+Create a .env file in the project root:
+envOPENROUTER_API_KEY=your_openrouter_api_key_here
+5. Run the application
+bashpython app.py
+Open your browser at http://127.0.0.1:5000
 
----
-
-## 4️⃣ Install Dependencies
-
-```bash id="x1k6v9"
-pip install -r requirements.txt
-```
-
----
-
-#  Environment Variables
-
-Create a `.env` file in the project root:
-
-```env id="m4p7w2"
-OPENROUTER_API_KEY=your_openrouter_api_key
-```
-
-Get API key from:
-
-[OpenRouter](https://openrouter.ai/keys?utm_source=chatgpt.com)
-
----
-
-# ▶️ Run Application Locally
-
-```bash id="f9x3m5"
-python app.py
-```
-
-Open browser:
-
-```text id="u6k1r8"
-http://127.0.0.1:5000
-```
-
----
-
-# ☁️ Deployment (Render)
-
-This project is deployment-ready on:
-
-* Render
-* Railway
-* Replit
-* VPS Servers
-
-## Render Build Command
-
-```bash id="r2w8v4"
-pip install -r requirements.txt
-```
-
-## Render Start Command
-
-```bash id="t5m1q7"
-gunicorn app:app
-```
-
----
-
-# 📂 Project Structure
-
-```text id="a8n4k2"
+Project Structure
 Resume-Analyzer-with-LLM-Driven-Insights/
-│
 ├── app.py
 ├── requirements.txt
 ├── Procfile
-├── .gitignore
 ├── .env
-│
+├── .gitignore
 ├── templates/
 │   └── index.html
-│
 ├── static/
 │   └── style.css
-│
 └── README.md
-```
 
----
+Deployment
+This project is ready to deploy on Render, Railway, or Replit.
+Render configuration:
+SettingValueBuild commandpip install -r requirements.txtStart commandgunicorn app:app
+Set OPENROUTER_API_KEY as an environment variable in your hosting provider's dashboard — do not commit your .env file.
 
-# 📊Dashboard Analytics
+Supported File Formats
 
-The application provides:
+PDF (.pdf)
+Word documents (.docx)
+Plain text (.txt)
 
-* ATS Score
-* Resume Quality Score
-* Skill Match %
-* Role Prediction
-* Missing Skills Analysis
-* Keyword Frequency Analysis
-* AI Recruiter Insights
 
----
+Dashboard Output
+After uploading a resume, the dashboard displays:
 
-#  AI Feedback Includes
+ATS compatibility score
+Resume quality score
+Skill match percentage
+Predicted role
+Missing skills
+Keyword frequency analysis
+AI recruiter insights
 
-* Strength analysis
-* Missing skill identification
-* Resume improvement suggestions
-* ATS optimization recommendations
-* Resume structure feedback
 
----
+Roadmap
 
-#  Security Best Practices
+ Job description matching
+ AI-generated resume rewriting
+ Resume PDF export
+ Authentication and user dashboard
+ Resume history tracking
+ AI mock interview system
+ Cloud database integration
 
-* API keys secured using `.env`
-* `.gitignore` prevents secret exposure
-* GitHub secret scanning compliant
-* Environment variable-based configuration
 
----
+Security
 
-#  Future Enhancements
+API keys are stored in .env and never committed to version control
+.gitignore is configured to exclude secrets
+Compliant with GitHub secret scanning
 
-* Resume PDF export
-* Job description matching
-* AI-generated resume rewriting
-* Authentication system
-* User dashboard
-* Resume history tracking
-* AI mock interview system
-* Cloud database integration
 
----
+Contributing
+Contributions are welcome. Please open an issue first to discuss what you'd like to change, then submit a pull request.
 
-# Project Highlights
+License
+This project is licensed under the MIT License.
 
-* Combines ATS logic with LLM-powered analysis
-* Generates recruiter-style feedback
-* Provides intelligent career recommendations
-* Interactive visual analytics dashboard
-* Production-ready Flask deployment
-
----
-
-#  Developer
-
+Author
 Developed by Shraddha Upadhye
+If you find this project useful, consider giving it a star on GitHub.
 
-GitHub:
+Roadmap
 
-[Shraddha Upadhye GitHub](https://github.com/upadhyeshraddha54-spec?utm_source=chatgpt.com)
-
----
-
-# Support
-
-If you found this project useful:
-
-* Star the repository
-* Fork the project
-* Share it with others
+ Job description matching
+ AI-generated resume rewriting
+ Resume PDF export
+ Authentication and user dashboard
+ Resume history tracking
+ AI mock interview system
+ Cloud database integration
 
 
+Security
+
+API keys are stored in .env and never committed to version control
+.gitignore is configured to exclude secrets
+Compliant with GitHub secret scanning
+
+
+Contributing
+Contributions are welcome. Please open an issue first to discuss what you'd like to change, then submit a pull request.
+
+Author
+Developed by Shraddha Upadhye
+If you find this project useful, consider giving it a star on GitHub.
